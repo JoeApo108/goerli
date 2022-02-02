@@ -1,0 +1,18 @@
+[Unit]
+Description=Eth Goerly daemon
+After=network-online.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=admin
+WorkingDirectory=/data/erigon/build/bin/
+ExecStart=/data/erigon/build/bin/erigon --datadir /data/gorli-000/ --chain goerli
+SyslogIdentifier=eth-goerli
+StartLimitInterval=0
+LimitNOFILE=65536
+LimitNPROC=65536
+
+[Install]
+WantedBy=multi-user.target
